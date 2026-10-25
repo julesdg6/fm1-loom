@@ -11,9 +11,9 @@ from [Felucca](https://github.com/hugelton/Felucca) by Leo Kuroshita (Hügelton 
 discipline and Polly's menu paradigm.
 
 - **Read the manual**: [docs/MANUAL.md](docs/MANUAL.md), with a ten-minute quick start, every page and gesture, and screenshots
-- **Try it in your browser** (no FM-1 needed): <https://charlesvestal.github.io/fm1-loom/emu/>
-- **Install it** (Chrome or Edge, with the FM-1 plugged in): <https://charlesvestal.github.io/fm1-loom/install/>
-- **Download the firmware file**: [releases](https://github.com/charlesvestal/fm1-loom/releases)
+- **Try it in your browser** (no FM-1 needed): <https://julesdg6.github.io/fm1-loom/emu/>
+- **Install it** (Chrome or Edge, with the FM-1 plugged in): <https://julesdg6.github.io/fm1-loom/install/>
+- **Download the firmware file**: [releases](https://github.com/julesdg6/smk37-loom/releases)
 
 Installing is at your own risk, though it's hard to get stuck: the web installer can put M-VAVE's
 firmware back, and an FM-1 that keeps crashing starts in a safe mode.
