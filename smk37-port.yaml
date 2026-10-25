@@ -1,0 +1,104 @@
+# smk37-port.yaml: LOOM-8 → M-VAVE SMK-37
+#
+# The agent copies this file into the firmware repository, fills it from the owner's answers (AGENTS.md, step 0)
+# and implements it in step 4. Change the file first, then the code.
+
+firmware:
+  name: "LOOM-8"
+  upstream: "https://github.com/charlesvestal/fm1-loom"
+  base: "fm1-base 42dc630 (Felucca 1.6.1 + fm1-base)"
+  family: felucca
+  board_layer: felucca          # the Felucca layer, applied to a copied tree
+  lost_on_smk: ["TRS MIDI IN / clock in"]
+  priorities:
+    - "all features: groovebox workflow, 9 engines, sequencer with param locks, conductor, throws"
+
+delivery:
+  mode: upstream
+  pr: ""
+  fork: ""                      # until merged: the porter's fork of the original
+  package: "loom-smk37.fwsc"
+  usb_name: "LOOM-8 SMK-37"
+  data_family: "LOOM"           # own family; data survives switching between FM-1 and SMK
+  copyright: "M. Geisler (genkigenki/makkuro)"
+
+models:
+  - pro                         # SMK-37 Pro (also for Starrykey 37 Play)
+  - elite                       # SMK-37 Elite
+
+keys:
+  middle: fm1
+  outer: extend
+  outer_drums:
+    # C3: kick, D3: snare, E3: hi-hat (SLOOP standard for groovebox)
+  velocity: factory
+
+pads:
+  pattern: steps
+  order: reading
+  colours: screen
+  idle: dark
+  playhead: bright
+  velocity: true
+  notes: ""
+
+faders:
+  pattern: banks
+  takeover: soft
+  bank_button: FADER BANK
+  banks:
+    A: [level 1, level 2, level 3, level 4]
+    B: [level 5, level 6, level 7, level 8]
+  fixed: []
+  screen: bank_screen
+
+wheels:
+  pitch:
+    target: bend
+    range_semitones: 2
+    applies_to: selected
+  mod:
+    target: vibrato
+    detail: ""
+  calibration: auto
+
+rules:
+  no_doubles: true
+  doubles_allowed: []
+
+knobs:
+  layout: fm1
+  K1: master
+  K2: select
+  K3: algorithm
+  K4: presets
+  K5: dial 1
+  K6: dial 2
+  K7: dial 3
+  K8: dial 4
+  step: detent
+  pages: {}
+
+buttons:
+  map: printed
+  names: firmware
+  extra:
+    KNOB BANK: ""
+    FADER BANK: ""
+    "<": page back
+    ">": page forward
+
+screen:
+  style: keep
+  colours: ""
+  rules:
+    - group screens by meaning; the knob block at the bottom of the screen
+    - the screen shows what you touch first (value next to the thing, a short hint line)
+    - same colours and same places on screen and panel
+    - no hidden modes; play first, few menus
+
+pedal: none
+
+modes: {}
+
+open_questions: []
